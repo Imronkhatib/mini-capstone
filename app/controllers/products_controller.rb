@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
 
   def all_products
-    new_shoe = Product.all
+    the_products = Product.all
 
-    render json: new_shoe.as_json
+    render json: the_products.as_json
   end
 
   def walet
