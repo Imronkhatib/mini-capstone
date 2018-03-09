@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   
   namespace :v1 do
     get '/products' => 'products#index'
-    get '/walets' => 'products#walet'
-    get '/any-product' => 'products#any'
-    get '/the-product/:id' => 'products#any'
+    get '/products/:id' => 'products#show'
   end
 end
