@@ -1,8 +1,8 @@
 class V1::ProductsController < ApplicationController
 
-  def all_products
-    the_products = Product.all
-    render json: the_products.as_json
+  def index
+    products = Product.all
+    render json: products.as_json
   end
 
   def walet
