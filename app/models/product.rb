@@ -5,6 +5,7 @@ class Product < ApplicationRecord
      price: price,
      tax: tax,
      total: total,
+     stock: stock,
      image_url: image_url,
      description: description,
      is_discounted: is_discounted?
