@@ -28,7 +28,7 @@ class V1::ProductsController < ApplicationController
   
   def update
     the_id = params[:id]
-    product = Product.find(id: the_id)
+    product = Product.find_by(id: the_id)
 
     product.name = params[:name] || product.name
     product.description = params[:description] || product.description

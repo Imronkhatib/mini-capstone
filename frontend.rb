@@ -1,6 +1,5 @@
 require 'unirest'
 
-
 # response = Unirest.post("http://localhost:3000/v1/products", parameters:{ 
 #     name: "", 
 #     price: 0,
@@ -11,10 +10,9 @@ require 'unirest'
 
 # puts json: response.body 
 
-print "Which id are you looking to update"
-id_input = gets.chomp
 
-response = Unirest.patch("http://localhost:3000/v1/products/#{id_input}",parameters:{ 
+
+response = Unirest.patch("http://localhost:3000/v1/products/2",parameters:{ 
     name: "Candy", 
     price: 1.0,
     stock: "true", 
