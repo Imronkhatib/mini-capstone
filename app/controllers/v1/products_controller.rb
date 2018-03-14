@@ -13,11 +13,11 @@ class V1::ProductsController < ApplicationController
 
   def create
     product1 = Product.new(
-      name: params[:name_input],
-      price: params[:price_input],
-      stock: params[:stock_input],
-      image_url: params[:image_url_input],
-      description: params[:description_input]
+      name: params[:name],
+      price: params[:price],
+      stock: params[:stock],
+      image_url: params[:image_url],
+      description: params[:description]
     )
     product1.save
     render json: product1.as_json
