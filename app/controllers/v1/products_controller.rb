@@ -22,7 +22,7 @@ class V1::ProductsController < ApplicationController
     if product1.save
     render json: product1.as_json
   else
-    render json: {errors: product.errors.full_messages}
+    render json: {errors: product1.errors.full_messages}
   end
   end
   
@@ -32,11 +32,11 @@ class V1::ProductsController < ApplicationController
     render json: product.as_json
 
     product1 = Product.update(
-      name: "something",
-      price: 1000,
-      stock: "In stock",
-      image_url: "I don't have one right now",
-      description: "These shoes are super comfortable",
+      name: params[:name],
+      price: params[:price],
+      stock: params[:stock],
+      image_url: params[:image_url],
+      description: params[:description]
       )
   end
 end

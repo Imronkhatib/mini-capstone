@@ -1,11 +1,13 @@
 require 'unirest'
 
-  response = Unirest.post("http://localhost:3000/v1/products", parameters{ 
-    name: "Peanuts", 
-    price: 0, 
+
+response = Unirest.post("http://localhost:3000/v1/products", parameters:{ 
+    name: "", 
+    price: 0,
+    stock: "true", 
     image_url: "there isn't one", 
-    description: "This is something a lot of people are alergic to, and that sucks."
+    description: ""
   }
   )
 
-  puts json: response.body 
+puts json: response.body 
