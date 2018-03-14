@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+  #   validates :name, presence: true
+
   def as_json
     {id: id,
      price: price,
