@@ -20,24 +20,26 @@ class V1::ProductsController < ApplicationController
       description: params[:description]
     )
     if product1.save
-    render json: product1.as_json
-  else
-    render json: {errors: product1.errors.full_messages}
-  end
+      render json: product1.as_json
+    else
+      render json: {errors: product1.errors.full_messages}
+    end
   end
   
   def update
     the_id = params[:id]
-    product = Product.find_by(id: the_id)
-    render json: product.as_json
+    product = Product.find(id: the_id)
 
-    product1 = Product.update(
-      name: params[:name],
-      price: params[:price],
-      stock: params[:stock],
-      image_url: params[:image_url],
-      description: params[:description]
-      )
+    product.name = params[:name] || product.name
+    product.description = params[:description] || product.description
+    product.stock = params[:stock] || product.stock
+    product.price = params[:price] || product.price
+    product.image_url = params[:image_url] || product.image_url
+    product.save
+    
+      render json: product.as_json
+    # else
+    #   render json: {errors: product.errors.full_messages}
   end
 end
 
