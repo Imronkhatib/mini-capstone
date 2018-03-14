@@ -19,8 +19,11 @@ class V1::ProductsController < ApplicationController
       image_url: params[:image_url],
       description: params[:description]
     )
-    product1.save
+    if product1.save
     render json: product1.as_json
+  else
+    render json: {errors: product.errors.full_messages}
+  end
   end
   
   def update
