@@ -1,7 +1,8 @@
 class V1::ProductsController < ApplicationController
 
   def index
-    products = Product.all
+    search_term = params[:search]
+    products = Product.all.order(id: :asc).where('name LIKE ?', "%#{search_term}%")
     render json: products.as_json
   end
 
