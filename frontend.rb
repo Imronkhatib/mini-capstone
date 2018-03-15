@@ -21,6 +21,13 @@ require 'unirest'
 #   }
 #   )
 # puts json: response.body 
+# p 'What do you want to search?'
+# search_term = gets.chomp
+
+# response = Unirest.get("http://localhost:3000/v1/products?search=#{search_term}")
+
+# puts json: response.body
+
 p 'What do you want to search?'
 search_term = gets.chomp
 
