@@ -6,12 +6,17 @@
 
 # supplier3.save
 
-products = Product.all
+image = Image.all
 
-supplier_id = [1,2,3]
+product_id = [1,2,4]
 
-products.each do |product|
+image.each do |image|
 
-  product.supplier_id = supplier_id.sample()
-  product.save
+  image.product_id = product_id.sample()
+  image.save
 end
+
+# image = Image.new(url: 'another image')
+
+# image.save
+
