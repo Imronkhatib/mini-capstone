@@ -35,12 +35,27 @@ require 'unirest'
 
 # puts json: response.body
 
-response = Unirest.post("http://localhost:3000/v1/users", parameters: 
+# response = Unirest.post("http://localhost:3000/v1/users", parameters: 
+#   {
+#     name: "Michael",
+#     email: "michael.jordan@gmail.com",
+#     password: "password",
+#     password_confirmation: "password"
+#   }
+# )
+# p response.body 
+
+
+response = Unirest.post("http://localhost:3000/user_token", parameters: 
   {
-    name: "Michael",
-    email: "michael.jordan@gmail.com",
-    password: "password",
-    password_confirmation: "password"
+    auth: {
+      email: "michael.jordan@gmail.com",
+      password: "password"
+  }
   }
 )
-p response.body 
+
+p response.body
+# jwt =  response.body["jwt"]
+
+# Unirest.default_header("Authorization"), "Bearer #{jwt}")
