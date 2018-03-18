@@ -28,9 +28,19 @@ require 'unirest'
 
 # puts json: response.body
 
-p 'What do you want to search?'
-search_term = gets.chomp
+# p 'What do you want to search?'
+# search_term = gets.chomp
 
-response = Unirest.get("http://localhost:3000/v1/products?search=#{search_term}")
+# response = Unirest.get("http://localhost:3000/v1/products?search=#{search_term}")
 
-puts json: response.body
+# puts json: response.body
+
+response = Unirest.post("http://localhost:3000/v1/users", parameters: 
+  {
+    name: "Michael",
+    email: "michael.jordan@gmail.com",
+    password: "password",
+    password_confirmation: "password"
+  }
+)
+p response.body 
