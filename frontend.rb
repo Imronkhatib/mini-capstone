@@ -46,17 +46,47 @@ require 'unirest'
 # p response.body 
 
 
-response = Unirest.post("http://localhost:3000/user_token", parameters: 
-  {
-    auth: {
-      email: "michael.jordan@gmail.com",
-      password: "password"
-  }
-  }
-)
+# response = Unirest.post("http://localhost:3000/user_token", parameters: 
+#   {
+#     auth: {
+#       email: "michael.jordan@gmail.com",
+#       password: "password"
+#   }
+#   }
+# )
 
-p response.body
+# p response.body
 
-jwt =  response.body["jwt"]
+# jwt =  response.body["jwt"]
 
-Unirest.default_header("Authorization"), "Bearer #{jwt}")
+# Unirest.default_header("Authorization"), "Bearer #{jwt}")
+puts 'Please make a selection'
+puts '[1] Log in'
+puts '[2] Show all products'
+puts '[3] Create an order'
+
+input_option = gets.chomp.to_i
+
+if input_option == 2
+  response = Unirest.get("http://localhost:3000/v1/products")
+  products = response.body
+  p "hello"
+  puts products
+elsif input_option == 3
+  puts 'What is the product ID?'
+  input_id = gets.chomp.to_i
+  puts 'How many do you want?'
+  input_quantity = gets.chomp.to_i
+  response = Unirest.post("http://localhost:3000/v1/orders",
+    parameters:
+      {
+        user_id: input_id,
+        product_id: 2,
+        quantity: input_quantity,
+        subtotal: 3,
+        tax: 3 * 0.065,
+        total: 3 + (3 * 0.065)
+      }
+    )
+  p response.body
+end
