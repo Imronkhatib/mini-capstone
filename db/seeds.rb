@@ -6,17 +6,30 @@
 
 # supplier3.save
 
-image = Image.all
+# category_product = Category_product.new(product_id: 1, category_id:1)
 
-product_id = [1,2,4]
+# category_product.save
 
-image.each do |image|
+# category_product = Category_product.new(product_id: 2, category_id:1)
 
-  image.product_id = product_id.sample()
-  image.save
-end
+# category_product.save
+
+# category_product = Category_product.new(product_id: 4, category_id:1)
+
+# category_product.save
+
+# category_product = Category_product.new(product_id: 5, category_id:1)
+
+# category_product.save
+
+# category_product = Category_product.new(product_id: 3, category_id:2)
+
+# category_product.save
+
 
 # image = Image.new(url: 'another image')
 
 # image.save
+
+
 
