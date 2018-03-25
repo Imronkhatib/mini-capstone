@@ -2,7 +2,7 @@ class V1::ProductsController < ApplicationController
 
   def index
     p  "*" * 50
-     p current_user
+    p current_user
     p "*" * 50 
      # p current_user.admin
      # "*" * 50
@@ -17,9 +17,9 @@ class V1::ProductsController < ApplicationController
   end
 
   def create
-      p '*' * 50 
+    p '*' * 50 
     p current_user
-      p '*' * 50
+    p '*' * 50
     if current_user && current_user.admin
       product = Product.new(
         name: params[:name],
