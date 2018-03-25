@@ -13,7 +13,7 @@ class V1::OrdersController < ApplicationController
     calculated_total = calculated_subtotal + calculated_tax
     
     order = Order.new(
-      # user_id: current_user.id,
+      user_id: current_user.id,
       product_id: params[:product_id],
       quantity: params[:quantity],
       subtotal: calculated_subtotal,
