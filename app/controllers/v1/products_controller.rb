@@ -16,30 +16,32 @@ class V1::ProductsController < ApplicationController
     render json: products.as_json
   end
 
-  def show
-    the_id = params[:id]
-    product = Product.find_by(id: the_id)
-    render json: product.as_json
-  end
-
   def create
-
+      p '*' * 50 
+    p current_user
+      p '*' * 50
     if current_user && current_user.admin
-      product1 = Product.new(
+      product = Product.new(
         name: params[:name],
         price: params[:price],
         stock: params[:stock],
-        image_url: params[:image_url],
         description: params[:description]
       )
-      if product1.save
-        render json: product1.as_json
+      if product.save
+        render json: product.as_json
       else
-        render json: {errors: product1.errors.full_messages}
+        render json: {errors: product.errors.full_messages}
       end
     else
       render json: {message: 'You do not have permission to do this bruh.'}
     end
+  end
+
+
+  def show
+    the_id = params[:id]
+    product = Product.find_by(id: the_id)
+    render json: product.as_json
   end
   
   def update
@@ -50,10 +52,9 @@ class V1::ProductsController < ApplicationController
     product.description = params[:description] || product.description
     product.stock = params[:stock] || product.stock
     product.price = params[:price] || product.price
-    product.image_url = params[:image_url] || product.image_url
-    product.save
     
-      render json: product.as_json
+    product.save
+    render json: product.as_json
     # else
     #   render json: {errors: product.errors.full_messages}
   end
