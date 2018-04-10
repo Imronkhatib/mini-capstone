@@ -1,9 +1,9 @@
 class V1::CartedProductsController < ApplicationController
 
   def index
-    p "*" * 50
-    p current_user
-    p "*" * 50
+    # p "*" * 50
+    # p current_user
+    # p "*" * 50
     unless current_user
       render json: {message: 'you need to be logged in'}
     else
@@ -13,9 +13,9 @@ class V1::CartedProductsController < ApplicationController
   end
 
   def create
-    p "*" * 50
-    p current_user
-    p "*" * 50
+    # p "*" * 50
+    # p current_user
+    # p "*" * 50
     unless current_user
       render json: {message: 'you need to be logged in'}
     else
