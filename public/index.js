@@ -1,17 +1,34 @@
-var productTemplate = document.querySelector('#product-template');
-var productContainer = document.querySelector('.row');
+/* global Vue, VueRouter, axios */
 
-//    productContainer.appendChild(productTemplate.content.cloneNode(true));
+var HomePage = {
+  template: "#home-page",
+  data: function() {
+    return {
+      products: []
+    };
+  },
+  created: function() {
+    axios.get('/v1/products').then(function(response) {
+      this.products = response.data;
+      console.log(response.data);
+    }.bind(this));
+  },
+  methods: {
 
-/* global axios */
+  },
+  computed: {}
+};
 
-axios.get("http://localhost:3000/v1/products").then(function(response) {
-  // console.log(response.data);
-  var products = response.data;
-
-  for (var i = 0; i < products.length; i++) {
-    var productClone = productTemplate.content.cloneNode(true);
-    productClone.querySelector('.card-title').innerText = products[i].name;
-    productContainer.appendChild(productClone);
-  }  
+var router = new VueRouter({
+  routes: [{ path: "/", component: HomePage }],
+  scrollBehavior: function(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
 });
+
+var app = new Vue({
+  el: "#vue-app",
+  router: router
+});
+
+

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <title>My Mini-Capstone</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,7 +10,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <title>My Mini-Capstone</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="index.js" defer></script>
   </head>
   <body>
     <!-- Begin Nav -->
@@ -50,7 +54,12 @@
     </nav>
     <!-- End Nav -->
     <!-- Begin Card -->
-    <div class="row">        
+    <div id="vue-app">
+
+
+    <router-view></router-view>
+       
+    
       
     </div>
   </div>
@@ -94,21 +103,6 @@
     </div> -->
     <!-- End All Products -->
 
-    
-    <template id="product-template">
-      <div class="col-sm-4">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="card-title">Raw Eggs!</h2>
-            <h4>Chef: Jay Wengrow</h4>
-            <img src="http://www.birdfeedersspot.com/images/duckling-1596730_960_720.jpg" width="200px">
-            <p class="card-text">Ingredients: One live duck</p>
-            <p class="card-text">Directions: Squeeze the duck</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-    </template>
 
 
 
@@ -119,7 +113,22 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="index.js" defer></script>
   </body>
 </html>
+
+<template id="home-page">
+ <!-- <div class="row">  -->
+  <div>  
+    <div class="col-sm-4" v-for="product in products">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">{{ product.name }}</h2>
+          <h4>{{ product.price }}</h4>
+          <img src="http://www.birdfeedersspot.com/images/duckling-1596730_960_720.jpg" width="200px">
+          <p class="card-text">{{ product.description }}</p>
+          <a href="#" class="btn btn-primary">Buy the Product</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
