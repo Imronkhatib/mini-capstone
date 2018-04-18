@@ -38,6 +38,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/#/signup">Sign Up</a>
+                <a class="dropdown-item" href="/#/products/new">Make New Products</a>
                 <a class="dropdown-item" href="/#/login">Log In</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="/#/logout">Log Out</a>
@@ -69,6 +70,64 @@
 </html>
 
 
+
+
+
+<template id="product-show-page">
+  <div>
+    
+    <p>
+    </p>{{product}}
+
+  </div>
+</template>
+
+
+<template id="shoppingcart-page">
+ <div class="row"> 
+    <div class="col-sm-4" v-for="product in products">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">{{ product.name }}</h2>
+          <h4>{{ product.price }}</h4>
+          <h4>{{ message }}</h4>
+          <p class="card-text">{{ product.description }}</p>
+          <a href="#" class="btn btn-primary">Buy the Product</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="products-new-page">
+  <div class="vue-component">
+
+    <div class="container">
+      <h1>Make a New product</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Name:</label> 
+        <input type="text" class="form-control" v-model="name">
+      </div>
+      <div class="form-group">
+        <label>Price:</label>
+        <input type="text" class="form-control" v-model="price">
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <input type="text" class="form-control" v-model="description">
+      </div>
+      <div class="form-group">
+        <label>Stock:</label>
+        <input type="text" class="form-control" v-model="stock">
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
 
 
 <template id="login-page">
