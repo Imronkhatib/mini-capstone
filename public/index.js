@@ -10,8 +10,8 @@ var ProductShowPage = {
     };
   },
   created: function() {
-    axios.get('/v1/products/1').then(function(response) {
-      console.log(response.data);
+    axios.get("/v1/products/" + this.$route.params.id).then(function(response) {
+      console.log(this);
       this.product = response.data;
     }.bind(this));
   },
