@@ -194,7 +194,7 @@
           <h4>{{ product.price }}</h4>
           <img src="http://www.birdfeedersspot.com/images/duckling-1596730_960_720.jpg" width="200px">
           <p class="card-text">{{ product.description }}</p>
-          <a href="#" class="btn btn-primary">Buy the Product</a>
+          <a v-bind:href="'/#/product/' + product.id" class="btn btn-primary">Buy the Product</a>
         </div>
       </div>
     </div>
